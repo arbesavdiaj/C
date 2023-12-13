@@ -12,7 +12,7 @@ char *command_path(char *cmd)
         return NULL;
     }
 
-    path_copy = strdup(path)
+    path_copy = strdup(path);
     if (path_copy == NULL)
     {
         fprintf(stderr, "Error copying path");
@@ -31,6 +31,13 @@ char *command_path(char *cmd)
             return NULL;
         }
 
-        token = strtok(NULL, ":")
+        strcpy(full_path, token);
+        strcat(full_path, "/");
+        strcat(full_path, cmd);
+
+        token = strtok(NULL, ":");
     }
+    free(path_copy);
+
+    return(full_path);
 }
