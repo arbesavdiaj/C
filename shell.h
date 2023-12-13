@@ -14,4 +14,6 @@ extern char **environ;
 int _printenv(void);
 char *_getenv(char *var);
 
+char *command_path(char *cmd);
+
 #endif
